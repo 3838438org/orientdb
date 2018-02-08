@@ -1368,7 +1368,9 @@ public abstract class OAbstractPaginatedStorage extends OStorageAbstract
             if (!hasNext()) {
               throw new NoSuchElementException();
             }
-            return next();
+            OBrowsePage curPage = page;
+            page = null;
+            return curPage;
           }
         };
       } finally {
